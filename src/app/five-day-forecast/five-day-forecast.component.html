@@ -1,0 +1,53 @@
+<div class="five-days-weather-container">
+  <div class="container">
+    <div
+      *ngFor="let weather of dailyWeather"
+      (click)="getHourlyWeather(weather.dt, weather)"
+      class="day-weather"
+      [class.active]="selected == weather"
+    >
+      <div class="date">
+        {{ getDate(weather.dt) }}
+        <p class="week">{{ day }}</p>
+
+        <p class="day">{{ date }}</p>
+      </div>
+      <div class="sky">
+        <div class="img">
+          <img [src]="getIcon(weather.weather[0].icon)" alt="" />
+        </div>
+        <div class="description">{{ weather.weather[0].main }}</div>
+      </div>
+      <div class="temperature">
+        <p class="temp">{{ getTemp(weather.main.temp) }}&#176;C</p>
+        <p class="feel">
+          Real feel {{ getTemp(weather.main.feels_like) }}&#176;C
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="hourlyWeather" class="hourly container">
+    <div class="row-1">
+      <div>HOURLY</div>
+    </div>
+    <div class="row-2">
+      <div>
+        <p></p>
+        <div class="img"></div>
+        <p class="weather">Forecast</p>
+        <p class="weather">Temperature (&#176;C)</p>
+        <p class="weather">Real Feel</p>
+      </div>
+      <div *ngFor="let weather of hourlyWeather">
+        <p>{{ getHoursMin(weather.dt) }}</p>
+        <div class="img">
+          <img [src]="getIcon(weather.weather[0].icon)" alt="" />
+        </div>
+        <p class="weather">{{ weather.weather[0].main }}</p>
+        <p class="weather">{{ getTemp(weather.main.temp) }}&#176;</p>
+        <p class="weather">{{ getTemp(weather.main.feels_like) }}&#176;</p>
+      </div>
+    </div>
+  </div>
+</div>

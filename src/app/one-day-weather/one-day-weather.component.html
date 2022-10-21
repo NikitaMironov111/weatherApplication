@@ -1,0 +1,48 @@
+<div class="one-day-weather-content container">
+  <div class="title">
+    <div>Current Weather</div>
+    <div>{{ getCurrentDate(oneDayWeather.dt) }}</div>
+  </div>
+  <div class="weather">
+    <div class="sky">
+      <div class="img">
+        <img [src]="getIcon(oneDayWeather.weather[0].icon)" alt="" />
+      </div>
+      <div class="description">{{ oneDayWeather.weather[0].main }}</div>
+    </div>
+    <div class="temperature">
+      <p class="temp">{{ getTemp(oneDayWeather.main.temp) }}&#176;C</p>
+      <p class="feel">
+        Real feel {{ getTemp(oneDayWeather.main.feels_like) }}&#176;C
+      </p>
+    </div>
+    <div class="day">
+      <p>Sunrise: {{ getDate(oneDayWeather.sys.sunrise) }}</p>
+      <p>Sunset: {{ getDate(oneDayWeather.sys.sunset) }}</p>
+    </div>
+  </div>
+</div>
+<div class="hourly-weather container">
+  <div class="row-1">
+    <div>HOURLY</div>
+  </div>
+  <div class="row-2">
+    {{ getTodayHourlyWeather(fiveDaysWeather) }}
+    <div>
+      <p>TODAY</p>
+      <div class="img"></div>
+      <p class="weather">Forecast</p>
+      <p class="weather">Temperature (&#176;C)</p>
+      <p class="weather">Real Feel</p>
+    </div>
+    <div *ngFor="let weather of hourlyWeather">
+      <p>{{ getHoursMin(weather.dt) }}</p>
+      <div class="img">
+        <img [src]="getIcon(weather.weather[0].icon)" alt="" />
+      </div>
+      <p class="weather">{{ weather.weather[0].main }}</p>
+      <p class="weather">{{ getTemp(weather.main.temp) }}&#176;</p>
+      <p class="weather">{{ getTemp(oneDayWeather.main.feels_like) }}&#176;</p>
+    </div>
+  </div>
+</div>

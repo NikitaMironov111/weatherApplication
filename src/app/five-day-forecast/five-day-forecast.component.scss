@@ -1,0 +1,100 @@
+.five-days-weather-container {
+  display: flex;
+  flex-direction: column;
+  width: 960px;
+  margin: 15px 0px;
+  .container {
+    display: flex;
+    width: 960px;
+    margin: 15px 0px;
+    height: 230px;
+    background-color: rgba(255, 255, 255, 0.4);
+  }
+  .day-weather {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    width: 20%;
+    padding: 15px;
+    border-right: 1px solid rgba(255, 255, 255, 0.45);
+    border-left: 1px solid rgba(255, 255, 255, 0.45);
+    .week {
+      color: #673ab7;
+      font-size: 1.3em;
+    }
+    .day {
+      color: #686a72;
+      font-size: 1.2em;
+    }
+    .temperature,
+    .description,
+    .img {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    :last-child {
+      border-right: none;
+    }
+    :first-child {
+      border-left: none;
+    }
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.45);
+      cursor: pointer;
+    }
+  }
+  .hourly {
+    flex-direction: column;
+    padding: 15px;
+    div.row-1 {
+      display: flex;
+      align-items: center;
+      color: #673ab7;
+      text-transform: uppercase;
+      font-size: 1.3em;
+    }
+    div.row-2 {
+      display: flex;
+      flex-wrap: nowrap;
+      width: 100%;
+      height: 100%;
+      div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0 15px;
+        min-width: 14%;
+        height: 100%;
+        padding-top: 10px;
+        .img {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 50px;
+          height: 50px;
+          background-color: transparent;
+          padding: 0;
+        }
+        p {
+          font-size: 1.2em;
+        }
+        .weather {
+          color: #686a72;
+        }
+      }
+      :first-child {
+        margin-left: 0px;
+      }
+      :last-child {
+        margin-right: 0px;
+      }
+    }
+  }
+}
+.active {
+  background-color: rgba(255, 255, 255, 0.45);
+}
